@@ -77,11 +77,6 @@ func main() {
 				fmt.Print("Enter the date you want to delete (X to exit): ")
 				fmt.Scan(&date)
 			}
-		case 4:
-			fmt.Println("\n--- Search Record by Date ---")
-			fmt.Print("Enter the date you want to search for: ")
-			//fmt.Scan(&date)
-			//binSearch()
 		case 5:
 			fmt.Println("\n--- View records ---")
 			ans = -1
