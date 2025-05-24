@@ -159,28 +159,28 @@ func viewWeeklySummary(A record, n int) {
 		switch improveSleepQuality{
 		case 3 :
 			fmt.Println("1. Sleep before 23:00")
-			fmt.Println("2. Maintain your sleep duration")
+			fmt.Println("2. Maintain your average sleeping duration")
 		case 4:
 			fmt.Println("1. Maintain your sleeping time")
-			fmt.Println("2. Increase your sleeping duration to at least 10 hours")
+			fmt.Println("2. Increase your average sleeping duration to at least 10 hours")
 		case 5:
 			fmt.Println("1. Maintain your sleeping time")
-			fmt.Println("2. Sleep for at least 10 hours")	
+			fmt.Println("2. Increase your average sleeping duration to at least 10 hours")	
 		case 6:
 			fmt.Println("1. Maintain your sleeping time")
-			fmt.Println("2. Decrease your sleeping duration to 6-7 hours")	
+			fmt.Println("2. Decrease your average sleeping duration to 6-7 hours")	
 		case 7:
 			fmt.Println("1. Maintain your sleeping time")
-			fmt.Println("2. Decrease your sleeping duration to 6-7 hours")	
+			fmt.Println("2. Decrease your average sleeping duration to 6-7 hours")	
 		case 8:
 			fmt.Println("1. Maintain your sleeeping time")
-			fmt.Println("2. Increase your sleeping duration to 7-9 hours")	
+			fmt.Println("2. Increase your average sleeping duration to 7-9 hours")	
 		case 9:
 			fmt.Println("1. Sleep before 21:00")
-			fmt.Println("2. Increase your sleeping duration to 7-9 hours")		
+			fmt.Println("2. Increase your average sleeping duration to 7-9 hours")		
 		case 10:
 			fmt.Println("1. Sleep before 23:00")
-			fmt.Println("2. Increase your sleeping duration to 7-9 hours")
+			fmt.Println("2. Increase your average sleeping duration to 7-9 hours")
 		}
 	} 
 }
