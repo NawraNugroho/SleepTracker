@@ -148,7 +148,7 @@ func viewWeeklySummary(A record, n int) {
 	fmt.Println("Your average sleep quality is ", avgSleepQua)
 	improveSleepQuality = avgSleepQua + 2
 	
-	for ans != "yes" && ans != "no" && improveSleepQuality < 12{
+	for ans != "yes" && ans != "no" && improveSleepQuality < 11{
 		fmt.Print("\nDo you want to improve your sleep quality (yes/no)? ")
 		fmt.Scan(&ans)
 	}
