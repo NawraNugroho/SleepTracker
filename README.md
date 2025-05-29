@@ -2,8 +2,7 @@
 # Sleep Tracker Application
 
 This project is aimed to track users sleep habits and suggest activities to the user to improve sleep quality and health. In this project, users only have to input date, sleeping and wake up time on a specific date, and the program is responsible for storing and calculating both sleep duration and sleep quality automatically. The calculation will be used for sleep improvement suggestions.
-
-
+This project is made 100% using Go Programming Language and can be executed using terminal or Integrated Development Enviroment (IDE).
 
 
 ## Demo
@@ -11,7 +10,7 @@ This project is aimed to track users sleep habits and suggest activities to the 
 https://drive.google.com/drive/folders/1WtER52P04Wml6C3MZ92yxYRxaab2rUWa?usp=sharing
 
 
-## Features & Technical aspects
+## Features & Technical Aspects
 
 - Add Records
 
