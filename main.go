@@ -180,7 +180,7 @@ func viewWeeklySummary(A record, n int) {
 			fmt.Println("2. Increase your average sleeping duration to 7-9 hours")		
 		case 10:
 			fmt.Println("1. Sleep before 23:00")
-			fmt.Println("2. Increase your average sleeping duration to 7-9 hours")
+			fmt.Println("2. Maintain your average sleeping duration")
 		}
 	} 
 }
