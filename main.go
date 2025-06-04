@@ -40,10 +40,10 @@ func main() {
 	var ans int
 	var date string
 	var idx int
-
 	
 	opt = -1
 	for opt != 0 {
+	//home page menu
 		fmt.Println("\n--- Sleep Tracker ---")
 		fmt.Println("1. Add Record")
 		fmt.Println("2. Modify Record")
@@ -55,6 +55,7 @@ func main() {
 		fmt.Print("Choose an option: ")
 		fmt.Scan(&opt)
 
+		//menu selection
 		switch opt {
 		case 1:
 			fmt.Println("\n--- Add Record ---")
@@ -116,7 +117,7 @@ func main() {
 		case 6:
 			fmt.Println("\n--- View Weekly Summary ---")
 			if n < 7 {
-				fmt.Println("You don't have enough record. You must have at least 7 records to use this feature.")
+				fmt.Println("You only have ", n, "records. You must have at least 7 records to use this feature.")
 			} else {
 				fmt.Println("The 7 most recent recorded days.")
 				viewWeeklySummary(sleepRecord, n)
@@ -137,10 +138,12 @@ func viewWeeklySummary(A record, n int) {
 	fmt.Println("-------------------------------------------------------------------------------")
 	for i := 0; i < 7; i++ {
 		displayARecord(A, n, i)
+		//calculating total sleep duration and sleep quality
 		totSleepDur += A[i].sleepDuration.totalMin
 		totSleepQua += A[i].sleepQuality
 	}
 	
+	//calculating the average
 	avgSleepDurInHour = (totSleepDur/7)/60
 	avgSleepQua = totSleepQua/7
 	
@@ -153,6 +156,7 @@ func viewWeeklySummary(A record, n int) {
 		fmt.Scan(&ans)
 	}
 	
+	//giving users sleep suggestions
 	if ans == "yes" {
 		fmt.Printf("You can improve your sleep quality rate to %d or %d", improveSleepQuality-1, improveSleepQuality)
 		fmt.Println("\n\nIn order to gain that, you have to start: ")
@@ -243,7 +247,7 @@ func sortDate(A record, n int) {
 }
 
 func insertionSortDate(A *record, n int) {
-	//sort by date in ascending order
+	//sort by date in ascending order using insertion sort
 	var i, pass int
 	var temp sleepData
 
@@ -261,7 +265,7 @@ func insertionSortDate(A *record, n int) {
 }
 
 func selectionSortDate(A *record, n int) {
-	//sort by date in descending order
+	//sort by date in descending order using selection sort
 	var i, idx, pass int
 	var temp sleepData
 
@@ -318,6 +322,7 @@ func addRecord(A *record, addN int, n *int) {
 	}
 
 	for i < addN+max {
+		//ask for user input
 		fmt.Print("Date (yy/mm/dd): ")
 		fmt.Scan(&A[i].date)
 		fmt.Print("Sleep Time in 24-hour format (h m): ")
@@ -329,14 +334,15 @@ func addRecord(A *record, addN int, n *int) {
 		A[i].wakeTime.hour = wakeHour
 		A[i].wakeTime.minute = wakeMinute
 		fmt.Println()
-		A[i].sleepDuration = calcSleepDur(sleepHour, sleepMinute, wakeHour, wakeMinute)
-		calcSleepQuality(&*A, i)
+		A[i].sleepDuration = calcSleepDur(sleepHour, sleepMinute, wakeHour, wakeMinute) //automatically calculates sleep duration
+		calcSleepQuality(&*A, i) //automatically calculates sleep quality
 		i++
 		*n = *n + 1
 	}
 }
 
 func calcSleepDur(sleepHour int, sleepMinute int, wakeHour int, wakeMinute int) myTime {
+	//calculates sleep duration in hours, minutes and total minutes
 	var duration myTime
 
 	sleepTotMins := sleepHour*60 + sleepMinute
@@ -355,6 +361,7 @@ func calcSleepDur(sleepHour int, sleepMinute int, wakeHour int, wakeMinute int) 
 }
 
 func searchSeq(A record, n int, date string) int {
+	//search for date sequentially
 	var i, idx int
 
 	idx = -1
@@ -370,6 +377,7 @@ func searchSeq(A record, n int, date string) int {
 }
 
 func binSearch(A record, n int, x string) int {
+	//search for date using binary search
 	var left, right, mid int
 	
 	left = 0
@@ -388,7 +396,7 @@ func binSearch(A record, n int, x string) int {
 	return -1
 }
 func selectionSortDuration(A *record, n int) {
-	//sort by sleep duration in descending order
+	//sort by sleep duration in descending order using selection sort
 	var i, idx, pass int
 	var temp sleepData
 
@@ -410,7 +418,7 @@ func selectionSortDuration(A *record, n int) {
 }
 
 func insertionSortDuration(A *record, n int) {
-	//sort by sleep duration in ascending order
+	//sort by sleep duration in ascending order using insertion sort
 	var i, pass int
 	var temp sleepData
 
@@ -428,6 +436,7 @@ func insertionSortDuration(A *record, n int) {
 }
 
 func modify(A *record, n int, date string) {
+	//modify a record based on inputted date
 	var idx int
 	var ans int
 	var sleepHour, sleepMinute, wakeHour, wakeMinute int
@@ -447,6 +456,7 @@ func modify(A *record, n int, date string) {
 			fmt.Print("Choose an option: ")
 			fmt.Scan(&ans)
 
+			//ask for user input
 			switch ans {
 			case 1:
 				fmt.Print("\nDate (yy/mm/dd): ")
@@ -478,6 +488,7 @@ func modify(A *record, n int, date string) {
 }
 
 func delete(A *record, n *int, date string) {
+	//delete a record based on inputted date
 	var idx int
 	var i int
 
@@ -496,6 +507,7 @@ func delete(A *record, n *int, date string) {
 	}
 }
 func displayAll(A record, n int) {
+	//display all listed records
 	fmt.Printf("\n|%-15s | %-10s | %-12s | %-15s | %-13s|\n", "Date", "Sleep Time", "Wake Up Time", "Sleep Duration", "Sleep Quality")
 	fmt.Println("-------------------------------------------------------------------------------")
 	for i := 0; i < n; i++ {
@@ -504,10 +516,11 @@ func displayAll(A record, n int) {
 }
 
 func displayARecord(A record, n int, idx int) {
+	//display one record
 	fmt.Printf("|%-10s      | %02d:%02d      | %02d:%02d        | %2d h %2d m       | %-13d|\n", 
 	A[idx].date, 
 	A[idx].sleepTime.hour, A[idx].sleepTime.minute, 
 	A[idx].wakeTime.hour, A[idx].wakeTime.minute, 
 	A[idx].sleepDuration.hour, A[idx].sleepDuration.minute, 
 	A[idx].sleepQuality)
-} 
+}
